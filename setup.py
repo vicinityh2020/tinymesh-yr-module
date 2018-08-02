@@ -6,7 +6,7 @@ except ImportError:
 
 __version__ = '1.0.0'
 
-NAME = 'yr'
+NAME = 'tinymesh-yr'
 PACKAGES = ['yr']
 
 setup(
@@ -19,4 +19,6 @@ setup(
     author="German Poljakov",
     author_email="german@tiny-mesh.com",
     url="https://github.com/vicinityh2020/tinymesh-yr-module",
+    license='MIT',
+    zip_safe=False
 )
