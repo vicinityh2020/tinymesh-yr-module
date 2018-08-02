@@ -15,8 +15,8 @@ setup(
     install_requires=['requests'],
     version=__version__,
     test_suite='tests',
-    description="Python app to retrieve yr weather temperature and precipitation",
+    description="Python app to retrieve YR weather temperature and precipitation",
     author="German Poljakov",
-    author_email="hi@example.com",
-    url="",
+    author_email="german@tiny-mesh.com",
+    url="https://github.com/vicinityh2020/tinymesh-yr-module",
 )
