@@ -28,16 +28,16 @@ class Weather:
     def __repr__(self):
         return '%s%s' % (self.__scheme, self.__host)
 
-    def get_forecast(self, town: str, country: str = 'Norway') -> (int, float):
+    def get_forecast(self, town: str, url_path: str = None, country: str = 'Norway') -> (int, float):
         cache_key = '{}+{}'.format(country, town)
 
         cached_result = self.__get_cache(cache_key)
         if cached_result:
             return cached_result[0], cached_result[1]
-
-        url = '{scheme}{host}/place/{c}/{t}/{t}/{t}/forecast.xml'.format(
-            scheme=self.__scheme, host=self.__host, c=country, t=town)
-
+        if url_path is None:
+            url = f'{self.__scheme}{self.__host}/place/{country}/{town}/{town}/{town}/forecast.xml'
+        else:
+            url = f'{self.__scheme}{self.__host}/place/{url_path}/forecast.xml'
         try:
             res = requests.get(url=url)
         except ConnectionError as e:
